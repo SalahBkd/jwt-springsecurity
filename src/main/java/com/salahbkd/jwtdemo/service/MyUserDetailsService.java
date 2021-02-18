@@ -26,7 +26,6 @@ public class MyUserDetailsService implements UserDetailsService {
         this.bcryptEncoder = bcryptEncoder;
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         DAOUser user = userDao.findByUsername(username);

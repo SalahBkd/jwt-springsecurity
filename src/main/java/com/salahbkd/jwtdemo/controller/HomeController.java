@@ -24,7 +24,8 @@ public class HomeController {
     private MyUserDetailsService userDetailsService;
 
     @Autowired
-    public HomeController(AuthenticationManager authenticationManager, JwtUtil jwtTokenUtil, MyUserDetailsService userDetailsService) {
+    public HomeController(AuthenticationManager authenticationManager, JwtUtil jwtTokenUtil, 
+    MyUserDetailsService userDetailsService) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
         this.userDetailsService = userDetailsService;
@@ -49,6 +50,8 @@ public class HomeController {
 
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
+
+
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
 
